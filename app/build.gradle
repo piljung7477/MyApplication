@@ -9,6 +9,7 @@ android {
         targetSdkVersion 25
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -16,6 +17,9 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+    }
+    dexOptions {
+        javaMaxHeapSize "4g"
     }
 }
 
@@ -26,4 +30,12 @@ dependencies {
     })
     compile 'com.android.support:appcompat-v7:25.3.1'
     testCompile 'junit:junit:4.12'
+
+    compile 'com.android.support:multidex:1.0.0'                   //멀티덱스(함수64K이상)
+    compile 'com.tsengvn:typekit:1.0.1'                              //폰트적용
+    compile 'com.squareup.retrofit2:retrofit:2.1.0'                //HTTP클라이언트
+    compile 'com.squareup.retrofit2:converter-gson:2.1.0'         //json파싱 지원
+    compile 'com.squareup.okhttp3:okhttp:3.0.1'
+    compile 'com.squareup.okhttp3:okhttp-urlconnection:3.0.1'
+    compile 'com.jakewharton:butterknife:7.0.1'                     //View선언 편의성
 }
